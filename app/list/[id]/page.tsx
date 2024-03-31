@@ -2,9 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { GetBooks } from '@/types/api';
 import { Params } from '@/types/params';
+import { BASE_URL } from '@/app/constants';
 
 async function getBooks(id: string) {
-	const url = `https://books-api.nomadcoders.workers.dev/list?name=${id}`;
+	const url = `${BASE_URL}/list?name=${id}`;
 
 	const response = await fetch(url);
 	const data = await response.json();

@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { GetGenres } from '@/types/api';
+import { BASE_URL } from '@/app/constants';
 
 export const metadata = {
 	title: 'Home',
 };
 
 async function getGenres() {
-	const url = 'https://books-api.nomadcoders.workers.dev/lists';
+	const url = `${BASE_URL}/lists`;
 
 	const response = await fetch(url);
 	const data = await response.json();
