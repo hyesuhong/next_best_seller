@@ -1,5 +1,6 @@
 import { Neuton } from 'next/font/google';
 import '../styles/global.css';
+import Header from '../components/header';
 
 const neuton = Neuton({
 	weight: ['300', '400', '700'],
@@ -20,7 +21,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en' className={neuton.className}>
-			<body>{children}</body>
+			<body>
+				<Header />
+				{children}
+			</body>
 		</html>
 	);
 }
