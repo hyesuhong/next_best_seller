@@ -1,5 +1,5 @@
 import { Neuton } from 'next/font/google';
-import '@styles/global.css';
+import '@/styles/global.css';
 import Header from '@/components/header';
 
 const neuton = Neuton({
@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en' className={neuton.className}>
-			<body>
+			<body className='bg-[#F0EEE2] text-[#272935]'>
 				<Header />
 				{children}
 			</body>
