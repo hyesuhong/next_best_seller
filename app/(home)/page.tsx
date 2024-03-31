@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import { GetGenres } from '@/types/api';
 import { BASE_URL } from '@/app/constants';
 import PageTitle from '@/components/pageTitle';
+import LinkButton from '@/components/linkButton';
 
 export const metadata = {
 	title: 'Home',
@@ -22,12 +22,13 @@ export default async function Page() {
 		<>
 			<PageTitle>The New York Times Best Seller Explorer</PageTitle>
 
-			<ul>
+			<ul className='flex flex-wrap gap-6'>
 				{genres.results.map((genre) => (
 					<li key={genre.list_name_encoded}>
-						<Link href={`/list/${genre.list_name_encoded}`}>
-							{genre.display_name}
-						</Link>
+						<LinkButton
+							path={`/list/${genre.list_name_encoded}`}
+							name={genre.display_name}
+						/>
 					</li>
 				))}
 			</ul>

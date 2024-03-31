@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import Link from 'next/link';
+
 import { GetBooks } from '@/types/api';
-import { Params } from '@/types/params';
+import { ListParams } from '@/types/params';
 import { BASE_URL } from '@/app/constants';
 import PageTitle from '@/components/pageTitle';
+import LinkButton from '@/components/linkButton';
 
 async function getBooks(id: string) {
 	const url = `${BASE_URL}/list?name=${id}`;
@@ -13,7 +14,7 @@ async function getBooks(id: string) {
 	return data as GetBooks;
 }
 
-export async function generateMetadata({ params: { id } }: Params) {
+export async function generateMetadata({ params: { id } }: ListParams) {
 	const books = await getBooks(id);
 
 	return {
@@ -21,7 +22,7 @@ export async function generateMetadata({ params: { id } }: Params) {
 	};
 }
 
-export default async function Page({ params: { id } }: Params) {
+export default async function Page({ params: { id } }: ListParams) {
 	const books = await getBooks(id);
 
 	return (
@@ -41,7 +42,7 @@ export default async function Page({ params: { id } }: Params) {
 						<dd>
 							<h4>{book.title}</h4>
 							<p>{book.author}</p>
-							<Link href={book.amazon_product_url}>Buy Now</Link>
+							<LinkButton path={book.amazon_product_url} name='Buy Now' />
 						</dd>
 					</dl>
 				))}
