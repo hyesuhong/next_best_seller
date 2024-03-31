@@ -1,10 +1,8 @@
-import Image from 'next/image';
-
 import { GetBooks } from '@/types/api';
 import { ListParams } from '@/types/params';
 import { BASE_URL } from '@/app/constants';
 import PageTitle from '@/components/pageTitle';
-import LinkButton from '@/components/linkButton';
+import BookItem from '@/components/bookItem';
 
 async function getBooks(id: string) {
 	const url = `${BASE_URL}/list?name=${id}`;
@@ -28,23 +26,9 @@ export default async function Page({ params: { id } }: ListParams) {
 	return (
 		<>
 			<PageTitle>{books.results.display_name}</PageTitle>
-			<article>
+			<article className='grid grid-cols-4 gap-6 max-lg:grid-cols-3 max-sm:grid-cols-2'>
 				{books.results.books.map((book) => (
-					<dl key={book.primary_isbn13}>
-						<dt>
-							<Image
-								src={book.book_image}
-								alt={book.title}
-								width={book.book_image_width}
-								height={book.book_image_height}
-							/>
-						</dt>
-						<dd>
-							<h4>{book.title}</h4>
-							<p>{book.author}</p>
-							<LinkButton path={book.amazon_product_url} name='Buy Now' />
-						</dd>
-					</dl>
+					<BookItem book={book} key={book.primary_isbn13} />
 				))}
 			</article>
 		</>
