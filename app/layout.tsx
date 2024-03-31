@@ -1,4 +1,5 @@
 import { Neuton } from 'next/font/google';
+import '../styles/global.css';
 
 const neuton = Neuton({
 	weight: ['300', '400', '700'],
