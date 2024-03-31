@@ -23,7 +23,7 @@ export default function RootLayout({
 		<html lang='en' className={neuton.className}>
 			<body className='bg-[#F0EEE2] text-[#272935]'>
 				<Header />
-				{children}
+				<main className='max-w-4xl mx-auto px-5 py-5'>{children}</main>
 			</body>
 		</html>
 	);
