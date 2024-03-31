@@ -1,6 +1,6 @@
 import { Neuton } from 'next/font/google';
-import '../styles/global.css';
-import Header from '../components/header';
+import '@styles/global.css';
+import Header from '@/components/header';
 
 const neuton = Neuton({
 	weight: ['300', '400', '700'],

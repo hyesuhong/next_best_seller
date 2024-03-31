@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { GetGenres } from '../../types/api';
+import { GetGenres } from '@/types/api';
 
 export const metadata = {
 	title: 'Home',
