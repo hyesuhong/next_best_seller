@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { GetGenres } from '@/types/api';
 import { BASE_URL } from '@/app/constants';
+import PageTitle from '@/components/pageTitle';
 
 export const metadata = {
 	title: 'Home',
@@ -18,8 +19,8 @@ export default async function Page() {
 	const genres = await getGenres();
 
 	return (
-		<main>
-			<h1>The New York Times Best Seller Explorer</h1>
+		<>
+			<PageTitle>The New York Times Best Seller Explorer</PageTitle>
 
 			<ul>
 				{genres.results.map((genre) => (
@@ -30,7 +31,7 @@ export default async function Page() {
 					</li>
 				))}
 			</ul>
-		</main>
+		</>
 	);
 }
 

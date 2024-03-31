@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { GetBooks } from '@/types/api';
 import { Params } from '@/types/params';
 import { BASE_URL } from '@/app/constants';
+import PageTitle from '@/components/pageTitle';
 
 async function getBooks(id: string) {
 	const url = `${BASE_URL}/list?name=${id}`;
@@ -24,8 +25,8 @@ export default async function Page({ params: { id } }: Params) {
 	const books = await getBooks(id);
 
 	return (
-		<main>
-			<h1>{books.results.display_name}</h1>
+		<>
+			<PageTitle>{books.results.display_name}</PageTitle>
 			<article>
 				{books.results.books.map((book) => (
 					<dl key={book.primary_isbn13}>
@@ -45,6 +46,6 @@ export default async function Page({ params: { id } }: Params) {
 					</dl>
 				))}
 			</article>
-		</main>
+		</>
 	);
 }
