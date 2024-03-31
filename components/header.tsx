@@ -13,7 +13,7 @@ export default function Header() {
 
 	return (
 		<header className='sticky top-0 w-full bg-[#FDFCF7]/80 backdrop-blur-lg z-10'>
-			<nav className='max-w-4xl mx-auto px-5 py-3'>
+			<nav className='max-w-6xl mx-auto px-5 py-3'>
 				<ul className='flex gap-8 text-lg'>
 					{router.map((route, index) => (
 						<li key={index} className='hover:opacity-60'>
